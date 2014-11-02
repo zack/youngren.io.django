@@ -1,0 +1,14 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'donations/style.css' %}" />
+
+{% if donations_list %}
+    <ul>
+    {% for donation in donations_list %}
+        <li><a href="{% url 'apps.donations:detail' donation.id %}">
+          {{ donation.donation_date }}
+        </a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No donations are available.</p>
+{% endif %}
