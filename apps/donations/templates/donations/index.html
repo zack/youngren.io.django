@@ -2,13 +2,26 @@
 <link rel="stylesheet" type="text/css" href="{% static 'donations/style.css' %}" />
 
 {% if donations_list %}
-    <ul>
+<div id="donations_table">
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Systolic</th>
+      <th>Diastolic</th>
+      <th>Donation Center</th>
+      <th>Type</th>
+    </tr>
     {% for donation in donations_list %}
-        <li><a href="{% url 'apps.donations:detail' donation.id %}">
-          {{ donation.donation_date }}
-        </a></li>
+    <tr>
+      <td>{{ donation.donation_date }}</td>
+      <td>{{ donation.systolic }}</td>
+      <td>{{ donation.diastolic }}</td>
+      <td>{{ donation.donation_center }}</td>
+      <td>{{ donation.donation_type }}</td>
+    </tr>
     {% endfor %}
-    </ul>
+  </table>
+</div>
 {% else %}
-    <p>No donations are available.</p>
+    <p>No donations recorded.</p>
 {% endif %}

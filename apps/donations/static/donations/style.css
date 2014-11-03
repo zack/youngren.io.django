@@ -1,3 +1,8 @@
-a {
-  color: green;
+#donations_table {
+  width: 750px;
+  border: 1px solid black;
+}
+#donations_table th {
+  background-color: gray;
+  width: 150px;
 }
